@@ -1,0 +1,28 @@
+#' Names of babies in Ontario Between 1917 and 2018
+#'
+#' A database containing the first names of babies born in Ontario
+#' between 1917 and 2018. Counts of fewer than 5 names were suppressed for privacy.
+#'
+#' @format A database containing  161 703 lines and 4 columns:
+#' \describe{
+#'   \item{year}{Year}
+#'   \item{sex}{F for female and M for male}
+#'   \item{name}{Name}
+#'   \item{n}{Frequency}
+#' }
+#' @importFrom tibble tibble
+#' @source \url{https://data.ontario.ca/dataset/eb4c585c-6ada-4de7-8ff1-e876fb1a6b0b/resource/919b7260-aafd-4af1-a427-38a51dbc8436/download/ontario_top_baby_names_male_1917-2018_en_fr.csv}
+#' @source \url{https://data.ontario.ca/dataset/4d339626-98f9-49fe-aede-d64f03fa914f/resource/0c4aec56-b2b8-499b-9739-68ab8a56e69a/download/ontario_top_baby_names_female_1917-2018_en_fr.csv}
+#' @examples
+#'
+#' \dontrun{
+#'   library(dplyr)
+#'
+#'   # The five most popular girls names in Ontario in 2018
+#'   onbabynames %>%
+#'     filter(year == 2018 & sex == "F") %>%
+#'     select(year, sex, name, n) %>%
+#'     arrange(desc(n)) %>%
+#'     head(5)
+#' }
+"onbabynames"

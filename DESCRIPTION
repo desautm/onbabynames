@@ -1,18 +1,23 @@
 Package: onbabynames
-Title: What the Package Does (One Line, Title Case)
+Title: Names Given to Babies in Ontario Between 1917 and 2018
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
+Language: en-US
+Authors@R:
+    person(given = "Marc-Andre",
+           family = "Desautels",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+           email = "marc-andre.desautels@cstjean.qc.ca")
+Description: A database containing the names 
+  of the babies born in Ontario between 1917 and 2018. 
+  Counts of fewer than 5 names were suppressed for privacy.
+License: MIT + file LICENSE
+URL: https://github.com/desautm/onbabynames
+BugReports: https://github.com/desautm/onbabynames/issues
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Depends: 
     R (>= 2.10)
+Imports:
+  tibble
