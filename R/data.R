@@ -15,14 +15,28 @@
 #' @source \url{https://data.ontario.ca/dataset/4d339626-98f9-49fe-aede-d64f03fa914f/resource/0c4aec56-b2b8-499b-9739-68ab8a56e69a/download/ontario_top_baby_names_female_1917-2018_en_fr.csv}
 #' @examples
 #'
-#' \dontrun{
 #'   library(dplyr)
 #'
 #'   # The five most popular girls names in Ontario in 2018
 #'   onbabynames %>%
 #'     filter(year == 2018 & sex == "F") %>%
-#'     select(year, sex, name, n) %>%
 #'     arrange(desc(n)) %>%
 #'     head(5)
-#' }
+#'
+#'   library(ggplot2)
+#'
+#'   # The popularity of the five most popular girls names in Ontario in 2018
+#'   # between 1917 and 2018
+#'
+#'   girls2018 <- onbabynames %>%
+#'     filter(year == 2018 & sex == "F") %>%
+#'     arrange(desc(n)) %>%
+#'     select(name) %>%
+#'     head(5)
+#'
+#'   onbabynames %>%
+#'     filter(name %in% girls2018$name) %>%
+#'     ggplot(aes(x = year, y = n, color = name)) +
+#'     geom_line()
+#'
 "onbabynames"

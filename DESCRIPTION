@@ -1,6 +1,6 @@
 Package: onbabynames
 Title: Names Given to Babies in Ontario Between 1917 and 2018
-Version: 0.0.0.9000
+Version: 0.0.1
 Language: en-US
 Authors@R:
     person(given = "Marc-Andre",
@@ -11,7 +11,7 @@ Description: A database containing the names
   of the babies born in Ontario between 1917 and 2018. 
   Counts of fewer than 5 names were suppressed for privacy.
 License: MIT + file LICENSE
-URL: https://github.com/desautm/onbabynames
+URL: <https://github.com/desautm/onbabynames>
 BugReports: https://github.com/desautm/onbabynames/issues
 Encoding: UTF-8
 LazyData: true
@@ -21,3 +21,6 @@ Depends:
     R (>= 2.10)
 Imports:
   tibble
+Suggests:
+  dplyr,
+  ggplot2

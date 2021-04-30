@@ -27,15 +27,29 @@ between 1917 and 2018. Counts of fewer than 5 names were suppressed for privacy.
 }
 \examples{
 
-\dontrun{
   library(dplyr)
 
   # The five most popular girls names in Ontario in 2018
   onbabynames \%>\%
     filter(year == 2018 & sex == "F") \%>\%
-    select(year, sex, name, n) \%>\%
     arrange(desc(n)) \%>\%
     head(5)
-}
+
+  library(ggplot2)
+
+  # The popularity of the five most popular girls names in Ontario in 2018
+  # between 1917 and 2018
+
+  girls2018 <- onbabynames \%>\%
+    filter(year == 2018 & sex == "F") \%>\%
+    arrange(desc(n)) \%>\%
+    select(name) \%>\%
+    head(5)
+
+  onbabynames \%>\%
+    filter(name \%in\% girls2018$name) \%>\%
+    ggplot(aes(x = year, y = n, color = name)) +
+    geom_line()
+
 }
 \keyword{datasets}
